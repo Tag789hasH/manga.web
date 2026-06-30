@@ -1,0 +1,133 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Enhanced Cover Page */
+#cover-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #4a1919, #000000); /* Deep red to black */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#cover-page h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px #e74c3c; /* Glowing text effect */
+}
+
+#enter-btn {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    background: transparent;
+    color: #e74c3c;
+    border: 2px solid #e74c3c;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite; /* Adding a pulse animation */
+}
+
+#enter-btn:hover {
+    background: #e74c3c;
+    color: white;
+    box-shadow: 0 0 30px #e74c3c;
+}
+
+/* Button Pulse Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+#enter-btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+#enter-btn:hover {
+    transform: scale(1.1);
+}
+
+#manga-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.panel {
+    background: #2d2d2d;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.narrative {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #555;
+    font-size: 1.1rem;
+}
+
+/* Add these styles to your existing style.css */
+
+.panel {
+    background: #2d2d2d;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    
+    /* Animation setup */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* This class will be added by JS to trigger the fade-in */
+.panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.5s ease;
+}
+
+/* Hover loop/zoom effect */
+.panel img:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
