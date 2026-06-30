@@ -4,28 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const manga = document.getElementById('manga-container');
     const music = document.getElementById('bg-music');
 
-    // Trigger music and reveal manga
+    // Generate Panels
+    for (let i = 18; i <= 37; i++) {
+        const panel = document.createElement('div');
+        panel.className = 'panel';
+        panel.innerHTML = `<img src="IMG-20260630-WA00${i}.jpg" alt="Panel ${i-17}">`;
+        manga.appendChild(panel);
+    }
+
+    // Intersection Observer for scroll animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+
+    // Play button logic
     btn.addEventListener('click', () => {
         cover.style.display = 'none';
         manga.style.display = 'block';
         music.play();
-    });
-
-    // Scroll animation observer
-    const observerOptions = {
-        threshold: 0.2 // Trigger when 20% of the panel is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    // Apply observer to all panels
-    document.querySelectorAll('.panel').forEach(panel => {
-        observer.observe(panel);
+        // Start observing panels once they appear
+        document.querySelectorAll('.panel').forEach(p => observer.observe(p));
     });
 });
